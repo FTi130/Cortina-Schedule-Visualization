@@ -7,19 +7,26 @@
     "start": "webpack-dev-server --progress --hot --open"
   },
   "dependencies": {
+    "@styled-system/theme-get": "^5.1.2",
     "baseui": "^9.114.0",
     "deck.gl": "^8.4.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-map-gl": "^5.0.0",
+    "react-native": "^0.64.1",
     "react-vis": "^1.11.7",
+    "styled-components": "^5.3.0",
     "styletron-engine-atomic": "^1.4.7",
     "styletron-react": "^6.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
     "@babel/preset-react": "^7.0.0",
+    "@rebass/grid": "^6.1.0",
     "babel-loader": "^8.0.5",
+    "prop-types": "^15.7.2",
+    "react-native-side-drawer": "^1.2.8",
+    "style": "0.0.3",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.1"

@@ -18,34 +18,11 @@ export default function ClockExample() {
         const handle = setInterval(() => setTime(getSeconds()), 100);
         return () => clearInterval(handle);
     }, []);
+    // console.log(time);
     const seconds = time % 60;
     const minutes = (time / 60) % 60;
-    const hours = (time / (60 * 24)) % 24;
+    // const hours = (time / (60 * 24)) % 24;
 
-
-    // Bullshit from here
-    const from = 0;
-    const to = 101000
-
-    function printNumbers(from, to) {
-        let current = from;
-
-        setTimeout(function go() {
-            alert(current);
-            if (current < to) {
-                setTimeout(go, 1000);
-            }
-            current++;
-        }, 1000);
-    }
-
-    const [count, setCount] = useState(0);
-    useEffect(() => {
-        const handle = setInterval(() => setCount(count+1), 100);
-        return () => clearInterval(handle);
-    }, []);
-
-    // to here basically
 
     return (
         <XYPlot
@@ -57,20 +34,33 @@ export default function ClockExample() {
             height={300}
         >
             <ArcSeries
+                onSeriesMouseOver={(event)=>{
+                    document.body.style.cursor = "pointer";
+                }}
+                onSeriesClick={(event)=>{
+                    // does something on click
+                    window.open('https://google.com');
+                    // you can access the value of the event
+                }}
+
                 animation={{
                     damping: 9,
                     stiffness: 300
                 }}
                 radiusDomain={[0, 3]}
                 data={[
+
                     {time: (seconds / 60) * 2 * PI, radius0: 1, radius: 1.5, color: 0},
+
                     {
                         time: (minutes / 60) * 2 * PI,
                         radius0: 1.6,
                         radius: 2.1,
                         color: 1
-                    },
-                    // {time: (hours / 24) * 2 * PI, radius0: 2.2, radius: 2.7, color: 2}
+                    }
+                    //,
+
+                    //{time: (hours / 24) * 2 * PI, radius0: 2.2, radius: 2.7, color: 2}
                 ]}
                 // colorRange={EXTENDED_DISCRETE_COLOR_RANGE}
             />
